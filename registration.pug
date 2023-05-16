@@ -4,34 +4,39 @@ html(lang="en")
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        <meta name="google-signin-client_id" content="417758347402-43sb1h9j8i91nlbodjk474kah0eo10ni.apps.googleusercontent.com">
         title Register 
         link(rel="stylesheet" href="../assets/styles/account.css")
         link(rel="stylesheet" href="../assets/styles/reset.css")
     body
         .account--bg
             .account--block
-                form.account--block-form
+                form.account--block-form#form
                     img.account--logo-mobile(src="../assets/img/academy-logo-tablet.svg")
                     h1 Sign up
+                    //- .g-signin2(data-onsuccess="onSignIn")
                     button.main.google Sign up with Google
                     h2 Or continue with
                     label(for="email") Email Address
-                        input#email(type="email" placeholder="Type your email address" required)
+                    input#email(placeholder="Type your email address")
+                    .error-message#emailError
                     label.distance(for="name") Name
-                        input#name(type="name" placeholder="Type your name" required)
+                    input#name(type="name" placeholder="Type your name")
+                    .error-message#nameError
                     label.distance(for="password") Password 
-                        input#password(type="password" placeholder="Type your password" required)
+                    input#password(type="password" placeholder="Type your password")
+                    .error-message#passwordError
                     label.distance(for="role") User role
-                        .select-container
-                            .select
-                                input(type="text" id="input" placeholder="Select" onfocus="this.blur();")
-                                .option-container
-                                    .option
-                                        label Html 
-                                    .option
-                                        label Htmll
-                    button.main.log-in Sign up
+                        .select-container#roleDiv
+                            select.select#role.beatu-select
+                                option(value="Admin") Admin 
+                                option(value="User") User 
+                            .error-message#roleError
+                    button.main.log-in(type="submit")#submit Sign up
+                    //- a(href="#" onclick="signOut();") Sign out
                     p Already have an account? 
                         button.sign-up Log in
             img.account--logo(src="../assets/img/academy-logo.svg")
+            
     script(src="../assets/js/main.js")
+    script(src="https://apis.google.com/js/platform.js" async defer)

@@ -6,24 +6,26 @@ html(lang="en")
         title Login 
         link(rel="stylesheet" href="../assets/styles/account.css")
         link(rel="stylesheet" href="../assets/styles/reset.css")
+
+
     body 
-    head
-        link(rel="stylesheet" href="../styles/account.css")
-        link(rel="stylesheet" href="../assets/scss/reset.css")
-    body
         .account--bg
             .account--block
-                form.account--block-form
+                form.account--block-form#form
                     img.account--logo-mobile(src="../assets/img/academy-logo.svg")
                     h1.login Log in
-                    button.main.google Log in with Google
+                    button.main.google#google-signin-button Log in with Google
                     h2 Or continue with
                     label(for="email") Email Address
-                        input#email(type="email" placeholder="Type your email address" required)
+                    input#email(placeholder="Type your email address")
+                    .error-message#emailError
                     label.distance(for="password") Password 
-                        input#password(type="password" placeholder="Type your password" required)
+                    input#password(type="password" placeholder="Type your password")
+                    .error-message#passwordError
                     button.forgot Forgot your password?
-                    button.main.log-in Log in
+                    button.main.log-in(type="submit")#submit Log in
                     p.login--distance New user? 
                         button.sign-up Sign up
                 img.account--logo(src="../assets/img/academy-logo.svg")
+        script(src="https://accounts.google.com/gsi/client" async defer)
+        script(src="../assets/js/main.js")

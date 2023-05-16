@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Inter";
   src: url("../assets/fonts/Inter/Inter-Bold.woff2") format("woff2"), url("../assets/fonts/Inter/Inter-Bold.woff") format("woff");
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -15,7 +15,7 @@
 @font-face {
   font-family: "Inter";
   src: url("../assets/fonts/Inter/Inter-Regular.woff2") format("woff2"), url("../assets/fonts/Inter/Inter-Regular.woff") format("woff"), url("../fonts/Inter/Inter-Regular.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -30,6 +30,13 @@
   font-family: "Inter";
   src: url("../assets/fonts/Inter/Inter-Bold.woff2") format("woff2"), url("../assets/fonts/Inter/Inter-Bold.woff") format("woff"), url("../fonts/Inter/Inter-Bold.ttf") format("truetype");
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/Inter-SemiBold.ttf") format("truetype"), url("../fonts/Inter/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -56,44 +63,7 @@ body .container {
   margin: auto;
 }
 
-.account--bg {
-  background: url("../img/bg-tablet.png");
-  max-width: 100%;
-  height: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.account--logo {
-  position: absolute;
-  top: 32px;
-  left: 40px;
-}
-.account--logo-mobile {
-  display: none;
-}
-.account--block {
-  background: url("../img/Registration_form.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 350px;
-  padding: 0 117px;
-  margin: 0 auto;
-}
-.account--block-form h1 {
-  font-family: var(--font-inter);
-  font-style: normal;
-  font-weight: 600;
-  font-size: 46px;
-  line-height: 56px;
-  color: var(--dark-grey);
-  text-align: center;
-  margin: 0 0 30px 0;
-  padding-top: 138px;
-}
-.account--block-form h1.login {
-  padding-top: 210px;
-}
-.account--block-form button.main {
+button.main {
   height: 46px;
   padding: 12px 0;
   width: 100%;
@@ -111,10 +81,84 @@ body .container {
   cursor: pointer;
   border: none;
 }
-.account--block-form button.google {
+button.google {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+button.forgot {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--grey);
+  background: transparent;
+  border: none;
+  display: block;
+  cursor: pointer;
+}
+button.log-in {
+  margin: 74px auto 16px;
+  width: 100%;
+  height: 46px;
+}
+button.sign-up {
+  font-size: 13px;
+  line-height: 20px;
+  text-align: right;
+  color: var(--grey);
+  text-decoration: underline;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.account--bg {
+  background: url("../img/bg-tablet.png");
+  background-position: center;
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.account--logo {
+  position: absolute;
+  top: 32px;
+  left: 40px;
+}
+.account--logo-mobile {
+  display: none;
+}
+.account--block {
+  background: url("../img/Registration_form.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 350px;
+  padding: 0 117px;
+  margin: 0 auto;
+  filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+}
+.account--block-form .error {
+  border: 1px solid red;
+}
+.account--block-form .error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.account--block-form h1 {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 46px;
+  line-height: 56px;
+  color: var(--dark-grey);
+  text-align: center;
+  margin: 0 0 30px 0;
+  padding-top: 138px;
+}
+.account--block-form h1.login {
+  padding-top: 210px;
 }
 .account--block-form button.google::before {
   display: inline-block;
@@ -167,15 +211,17 @@ body .container {
   line-height: 17px;
   color: var(--dark-grey);
 }
-.account--block-form label input {
-  width: 350px;
+.account--block-form input {
+  width: 338px;
   padding: 12px 0px 11px 12px;
   background: var(--light-white);
   border-radius: 4px;
   border: none;
   margin-top: 6px;
+  outline: transparent;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
-.account--block-form label input::-moz-placeholder {
+.account--block-form input::-moz-placeholder {
   font-family: var(--font-inter);
   font-style: normal;
   font-weight: 400;
@@ -183,7 +229,7 @@ body .container {
   line-height: 17px;
   color: rgba(62, 69, 82, 0.5);
 }
-.account--block-form label input::placeholder {
+.account--block-form input::placeholder {
   font-family: var(--font-inter);
   font-style: normal;
   font-weight: 400;
@@ -191,24 +237,46 @@ body .container {
   line-height: 17px;
   color: rgba(62, 69, 82, 0.5);
 }
-.account--block-form label .select-container {
+.account--block-form .select-container {
   position: relative;
   margin: 0 auto;
   width: 100%;
 }
-.account--block-form label .select-container .select {
+.account--block-form .select-container .select {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
   position: relative;
-  height: 38px;
+  padding: 11px 0 11px;
   background: var(--light-white);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   margin-top: 6px;
+  text-align: left;
 }
-.account--block-form label .select-container .select input {
+.account--block-form .select-container .select .button {
+  width: 338px;
+  padding-left: 12px;
+}
+.account--block-form .select-container .select input {
   margin-top: 0;
   cursor: pointer;
 }
-.account--block-form label .select-container .select::after {
+.account--block-form .select-container .select .selectlist {
+  width: 100%;
+}
+.account--block-form .select-container .select .selectlist div {
+  padding: 11px 12px;
+  border-top: 1px solid var(--grey);
+}
+.account--block-form .select-container .select .selectlist div:first-child {
+  border: none;
+}
+.account--block-form .select-container .select .selectlist div:last-child {
+  padding: 11px 12px 0;
+}
+.account--block-form .select-container .select::after {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -219,7 +287,7 @@ body .container {
   cursor: pointer;
   background: url("../img/arrow-bottom.svg");
 }
-.account--block-form label .select-container .option-container {
+.account--block-form .select-container .option-container {
   position: relative;
   background: var(--light-white);
   width: 100%;
@@ -227,7 +295,7 @@ body .container {
   overflow-y: auto;
   transition: 0.4s;
 }
-.account--block-form label .select-container .option-container .option {
+.account--block-form .select-container .option-container .option {
   position: relative;
   padding-left: 12px;
   height: 38px;
@@ -237,33 +305,15 @@ body .container {
   align-items: center;
   transition: 0.2s;
 }
-.account--block-form label .select-container.active .select::after {
+.account--block-form .select-container.active .select::after {
   transform: rotate(180deg);
 }
-.account--block-form label .select-container.active .option-container {
+.account--block-form .select-container.active .option-container {
   height: -moz-max-content;
   height: max-content;
 }
 .account--block-form label.distance {
   margin: 24px auto 6px;
-}
-.account--block-form button.forgot {
-  font-family: var(--font-inter);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: right;
-  color: var(--grey);
-  background: transparent;
-  border: none;
-  display: block;
-  cursor: pointer;
-}
-.account--block-form button.log-in {
-  margin: 74px auto 16px;
-  width: 100%;
-  height: 46px;
 }
 .account--block-form p {
   font-family: var(--font-inter);
@@ -280,13 +330,9 @@ body .container {
   padding-bottom: 276px;
 }
 .account--block-form button.sign-up {
-  font-family: var(--font-inter);
-  font-style: normal;
-  font-weight: 500;
   font-size: 13px;
   line-height: 20px;
   text-align: right;
-  color: var(--grey);
   text-decoration: underline;
   border: none;
   background: transparent;
@@ -314,8 +360,9 @@ body .container {
 }
 @media (max-width: 375px) {
   .account--bg {
-    width: 375px;
-    height: 668px;
+    width: 100%;
+    min-height: 668px;
+    height: 100%;
   }
   .account--logo {
     display: none;
@@ -341,6 +388,10 @@ body .container {
   }
   .account--block-form h1.login {
     padding-top: 76px;
+  }
+  .account--block-form button.forgot {
+    font-size: 12px;
+    line-height: 18px;
   }
   .account--block-form button.main {
     font-size: 12px;
